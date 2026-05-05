@@ -5,3 +5,5 @@ This is a modified version of the
 long-lived 'refresh' Dropbox tokens needed by Shiny dashboards.
 
 See https://github.com/karthik/rdrop2/issues/201
+
+To install: `devtools::install_github('COMPASS-DOE/rdrop2refreshtoken')`
