@@ -1,4 +1,4 @@
-Package: rdrop2
+Package: rdrop2refreshtoken
 Title: Programmatic Interface to the 'Dropbox' API
 Version: 0.8.2.2
 Authors@R: c(person("Karthik", "Ram", email = "karthik.ram@gmail.com", role = c("aut", "cre")),
@@ -20,5 +20,5 @@ Imports: digest,
          assertthat
 Suggests: testthat,
           uuid
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 Encoding: UTF-8

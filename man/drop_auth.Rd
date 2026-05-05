@@ -5,11 +5,11 @@
 \title{Authentication for Dropbox}
 \usage{
 drop_auth(
-  new_user = FALSE,
+  new_user = F,
   key = "mmhfsybffdom42w",
   secret = "l8zeqqqgm1ne5z0",
   cache = TRUE,
-  rdstoken = NA
+  rdstoken = here::here("tokenfile.RDS")
 )
 }
 \arguments{
@@ -46,21 +46,21 @@ reimplement your own.
 \examples{
 \dontrun{
 
-  # To either read token from .httr-oauth in the working directory or open a
-  # web browser to authenticate (and cache a token)
-  drop_auth()
+# To either read token from .httr-oauth in the working directory or open a
+# web browser to authenticate (and cache a token)
+drop_auth()
 
-  # If you want to overwrite an existing local token and switch to a new
-  # user, set new_user to TRUE.
-  drop_auth(new_user = TRUE)
+# If you want to overwrite an existing local token and switch to a new
+# user, set new_user to TRUE.
+drop_auth(new_user = TRUE)
 
-  # To store a token for re-use (more flexible than .httr-oauth), save the
-  # output of drop_auth and save it to an RDS file
-  token <- drop_auth()
-  saveRDS(token, "/path/to/tokenfile.RDS")
+# To store a token for re-use (more flexible than .httr-oauth), save the
+# output of drop_auth and save it to an RDS file
+token <- drop_auth()
+saveRDS(token, "/path/to/tokenfile.RDS")
 
-  # To use a stored token provide token location
-  drop_auth(rdstoken = "/path/to/tokenfile.RDS")
+# To use a stored token provide token location
+drop_auth(rdstoken = "/path/to/tokenfile.RDS")
 }
 }
 \references{
