@@ -7,3 +7,4 @@ cache/
 *.csv
 *.gif
 token.rds
+.positai
