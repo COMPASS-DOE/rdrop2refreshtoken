@@ -1,3 +1,9 @@
+# This is a modified version of https://github.com/karthik/rdrop2/blob/master/R/drop_auth.R
+# that changes the httr OAuth call to request a 'refresh' token. This allows
+# our dashboards to have long-lived tokens for automated use.
+# See discussion here: https://github.com/karthik/rdrop2/issues/201
+# Thanks to @abbylewis for her help with this! -BBL
+
 # environment to store credentials
 .dstate <- new.env(parent = emptyenv())
 
@@ -86,7 +92,10 @@ drop_auth <- function(new_user = FALSE,
     dropbox_app <- httr::oauth_app("dropbox", key, secret)
 
     # get the token
-    dropbox_token <- httr::oauth2.0_token(dropbox, dropbox_app, cache = cache)
+    dropbox_token <- httr::oauth2.0_token(dropbox, dropbox_app,
+                                          cache = cache,
+                                          query_authorize_extra = list(token_access_type = "offline")
+    )
 
     # make sure we got a token
     if (!inherits(dropbox_token, "Token2.0")) {

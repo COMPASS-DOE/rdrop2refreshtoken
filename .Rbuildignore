@@ -15,3 +15,5 @@ man-roxygen
 cache/
 cran-comments.md
 ^CRAN-RELEASE$
+^\.positai$
+^\.claude$
